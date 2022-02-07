@@ -18,8 +18,6 @@ const play = () => {
     const grid = document.getElementById('grid');
     grid.innerHTML = '';
 
-
-    
     const level = document.getElementById('level').value;
 
     let totalCells;
@@ -35,10 +33,39 @@ const play = () => {
         case 'hard':
             totalCells = 49;
             break;
-    }
+    };
     cellsPerRow = Math.sqrt(totalCells);
+
+    // FUNZIONI
+    const generateCell = (number) => {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.id = number;
+        cell.innerText = number;
+        const sideLength = `calc(100% / ${cellsPerRow})`;
+        cell.style.width = sideLength;
+        cell.style.height = sideLength;
+
+        return cell;
+    };
+
+    const generateGrid = (cellsNumber, cellPerRow) => {
+        for (let i = 1; i <= cellsNumber; i++) {
+            const cell = generateCell(i, cellsPerRow);
+            
+            cell.addEventListener('click', () => {
+                cell.classList.toggle('clicked');
+            })
+
+            grid.appendChild(cell);
+        }
+    };
+
+    generateGrid(totalCells, cellsPerRow);
 
 };
 
+
 const playButton = document.getElementById('play');
 playButton.addEventListener('click', play);
+
