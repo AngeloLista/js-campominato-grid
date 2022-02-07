@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: greenyellow;
+}
+
+/* Utilities */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+main {
+    color: white;
+    font-weight: bold;
+}
+
+header {
+    height: 70px;
+    padding: 0 20px;
+    line-height: 70px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* GRIGLIA */
+#grid {
+    width: 600px;
+    height: 600px;
+    margin: 50px auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid .cell {
+    border: 2px solid white;
+    cursor: pointer;
+
+    color: white;
+}
+
+.clicked {
+    background-color: lightblue;
+}
