@@ -12,4 +12,33 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento.
 */
 
+const play = () => {
+    // Cambio testo pulsante play e svuota griglia precedente
+    playButton.innerText = 'Ricomincia';
+    const grid = document.getElementById('grid');
+    grid.innerHTML = '';
 
+
+    
+    const level = document.getElementById('level').value;
+
+    let totalCells;
+    let cellsPerRow;
+
+    switch(level) {
+        case 'easy':
+            totalCells = 100;
+            break;
+        case 'normal':
+            totalCells = 81;
+            break;
+        case 'hard':
+            totalCells = 49;
+            break;
+    }
+    cellsPerRow = Math.sqrt(totalCells);
+
+};
+
+const playButton = document.getElementById('play');
+playButton.addEventListener('click', play);
